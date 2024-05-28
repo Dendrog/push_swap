@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:14:18 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/27 21:04:32 by jakim            ###   ########.fr       */
+/*   Updated: 2024/05/28 17:51:21 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	null_guard(int	*ptr);
 void	er(void);
 int	*make_stack_1(char *argv, int *l);
 char	*ft_atoi2(char *nptr, int	*r);
+int	*make_stack_2(int argc, char *argv[], int *l);
 
 #endif
