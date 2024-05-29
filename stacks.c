@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:17:03 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/28 19:36:55 by jakim            ###   ########.fr       */
+/*   Updated: 2024/05/30 02:12:08 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,20 +51,25 @@ int	*make_stack_1(char *argv, int *l)
 
 int	*make_stack_2(int argc, char *argv[], int *l)
 {
-	int	*stack;
-	int	tmp;
-	int	i;
+	int		*stack;
+	int		tmp;
+	char	*ptr;
+	int		i;
 
 	i = 0;
 	stack = (int *)malloc(sizeof(int) * (argc + 5));
+	argv++;
 	while (1)
 	{
-		if (ft_atoi2(argv[i + 1], &tmp))
-			stack[i++] = tmp;
-		if ((i + 1) == argc)
+		if (*argv == NULL)
 		{
 			*l = i;
 			return (stack);
 		}
+		ptr = ft_atoi2(*argv, &tmp);
+		if (!ptr || *ptr)
+			er();
+		stack[i++] = tmp;
+		argv++;
 	}
 }

@@ -1,41 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   oper1.c                                            :+:      :+:    :+:   */
+/*   oper_push.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 17:54:48 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/28 19:42:19 by jakim            ###   ########.fr       */
+/*   Created: 2024/05/28 19:42:27 by jakim             #+#    #+#             */
+/*   Updated: 2024/05/30 02:28:38 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(int *a)
+static void	push(t_stack *a, t_stack *b)
 {
-	int	tmp;
+	int	i;
 
-	tmp = a[0];
-	a[0] = a[1];
-	a[1] = tmp;
+	i = a->size - 1;
+	if (!b->size)
+		return ;
+	if (a->size)
+	{
+		while (i >= 0)
+		{
+			a->stack[i + 1] = a->stack[i];
+			i++;
+		}
+	}
+	a->stack[0] = b->stack[0];
+	a->size++;
+	i = 0;
+	while (i + 1 < b->size)
+	{
+		b->stack[i] = b->stack[i + 1];
+		i++;
+	}
+	b->size--;
 }
 
-void	sa(int *a)
+void	pa(t_stack *a, t_stack *b)
 {
-	swap(a);
-	ft_printf("sa");
+	push(a, b);
+	ft_printf("pa\n");
 }
 
-void	sb(int *b)
+void	pb(t_stack *a, t_stack *b)
 {
-	swap(b);
-	ft_printf("sb");
-}
-
-void	ss(int *a, int *b)
-{
-	swap(a);
-	swap(b);
-	ft_printf("ss");
+	push(b, a);
+	ft_printf("pb\n");
 }

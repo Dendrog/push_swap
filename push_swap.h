@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:14:18 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/28 19:46:11 by jakim            ###   ########.fr       */
+/*   Updated: 2024/05/30 02:11:55 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,24 @@
 # include "./get_next_line/get_next_line.h"
 
 typedef struct s_stack {
-	int	*row;
+	int	*stack;
 	int	size;
 }				t_stack;
 
 void	null_guard(int	*ptr);
 void	er(void);
-int	*make_stack_1(char *argv, int *l);
+int		*make_stack_1(char *argv, int *l);
 char	*ft_atoi2(char *nptr, int	*r);
-int	*make_stack_2(int argc, char *argv[], int *l);
+int		*make_stack_2(int argc, char *argv[], int *l);
+void	pb(t_stack *a, t_stack *b);
+void	pa(t_stack *a, t_stack *b);
+void	sa(t_stack *a);
+void	sb(t_stack *b);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
 
 #endif

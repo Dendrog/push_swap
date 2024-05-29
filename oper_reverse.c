@@ -1,25 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   n_guard.c                                          :+:      :+:    :+:   */
+/*   oper_reverse.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/27 15:33:15 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/30 02:10:07 by jakim            ###   ########.fr       */
+/*   Created: 2024/05/30 01:52:20 by jakim             #+#    #+#             */
+/*   Updated: 2024/05/30 02:22:45 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	null_guard(int	*ptr)
+static void	reverse(t_stack *a)
 {
-	if (!ptr)
-		exit(1);
+	int	i;
+
+	i = a->size;
+	while (i > 0)
+	{
+		a->stack[i] = a->stack[i - 1];
+		i--;
+	}
+	a->stack[0] = a->stack[a->size];
 }
 
-void	er(void)
+void	rra(t_stack *a)
 {
-	ft_printf("Error\n");
-	exit(1);
+	reverse(a);
+	ft_printf("rra\n");
+}
+
+void	rrb(t_stack *b)
+{
+	reverse(b);
+	ft_printf("rrb\n");
+}
+
+void	rrr(t_stack *a, t_stack *b)
+{
+	reverse(a);
+	reverse(b);
+	ft_printf("rrr\n");
 }

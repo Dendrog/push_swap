@@ -3,7 +3,11 @@ NAME =          push_swap
 SRCS =  main.c\
 		n_guard.c\
 		stacks.c\
-		utils.c
+		utils.c\
+		oper_swap.c\
+		oper_push.c\
+		oper_rotate.c\
+		oper_reverse.c
 
 LIB = libft/libft.a\
 		ft_printf/libftprintf.a\
