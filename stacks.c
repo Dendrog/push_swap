@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:17:03 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/30 02:12:08 by jakim            ###   ########.fr       */
+/*   Updated: 2024/05/31 21:00:06 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@ int	*make_stack_2(int argc, char *argv[], int *l)
 
 	i = 0;
 	stack = (int *)malloc(sizeof(int) * (argc + 5));
+	null_guard(stack);
 	argv++;
 	while (1)
 	{

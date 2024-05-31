@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:42:27 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/30 02:28:38 by jakim            ###   ########.fr       */
+/*   Updated: 2024/05/31 21:10:49 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ static void	push(t_stack *a, t_stack *b)
 		while (i >= 0)
 		{
 			a->stack[i + 1] = a->stack[i];
-			i++;
+			i--;
 		}
 	}
 	a->stack[0] = b->stack[0];

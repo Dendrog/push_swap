@@ -7,7 +7,8 @@ SRCS =  main.c\
 		oper_swap.c\
 		oper_push.c\
 		oper_rotate.c\
-		oper_reverse.c
+		oper_reverse.c\
+		sort.c
 
 LIB = libft/libft.a\
 		ft_printf/libftprintf.a\

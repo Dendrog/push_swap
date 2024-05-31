@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:59:04 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/30 02:31:01 by jakim            ###   ########.fr       */
+/*   Updated: 2024/05/31 21:36:51 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,15 @@ int	main(int argc, char *argv[])
 		a.stack = make_stack_1(argv[1], &a.size);
 	if (argc > 2)
 		a.stack = make_stack_2(argc, argv, &a.size);
+	dup_check(&a);
 	b.stack = (int *)malloc(sizeof(int) * (a.size + 5));
 	null_guard(b.stack);
 	b.size = 0;
+	sort(&a, &b);
+	/*for (int i = 0; i < a.size; i++)
+	{
+		ft_printf("%d ",a.stack[i]);
+	}*/
 	free(b.stack);
 	free(a.stack);
 }
