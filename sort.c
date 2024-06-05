@@ -6,13 +6,13 @@
 /*   By: jakim <jakim@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 20:31:21 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/06 04:32:01 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/06 04:40:21 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*static int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	int	i;
 
@@ -24,7 +24,7 @@
 		i++;
 	}
 	return (1);
-}*/
+}
 
 static t_stack	*stack_cpy(t_stack *a, int size)
 {

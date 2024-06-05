@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 14:59:04 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/06 04:24:56 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/06 04:43:13 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ int	main(int argc, char *argv[])
 	b.stack = (int *)malloc(sizeof(int) * (a.size + 5));
 	null_guard(b.stack);
 	b.size = 0;
-	sort(&a, &b, a.size, 0, 0, 0);
+	if(!is_sorted(&a))
+		sort(&a, &b, a.size, 0, 0, 0);
 	/*for (int i = 0; i < a.size; i++)
 	{
 		ft_printf("%d ",a.stack[i]);

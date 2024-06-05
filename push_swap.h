@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
+/*   By: jakim <jakim@student.42gyeongsan.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:14:18 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/05 22:12:57 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/06 04:40:32 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ void	sort(t_stack *a, t_stack *b, int size, int p1, int p2, int s);
 void	push(t_stack *a, t_stack *b);
 void	reverse(t_stack *a);
 void	rotate(t_stack *a);
+int	is_sorted(t_stack *a);
 
 #endif
