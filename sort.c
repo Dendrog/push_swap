@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 20:31:21 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/05 20:56:58 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/05 23:51:36 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,25 +118,27 @@ static void	mini_sort(t_stack *a, int size)
 	}
 }
 
-void	sort(t_stack *a, t_stack *b, int size)
+void	sort(t_stack *a, t_stack *b, int size, int p1, int p2, int s)
 {
 	int	r;
-	int	s;
+	//int	s;
 	int	m;
 	int	i;
-	int p1;
-	int p2;
+	int	tmp;
+	//int p1;
+	//int p2;
 
 	i = 0;
 	r = 0;
-	s = 0;
+	//s = 0;
 	m = 0;
 	if (size <= 3)
 	{
 		mini_sort(a, size);
 		return ;
 	}
-	search_pivot(a, size, &p1, &p2);
+	if (s == 0)
+		search_pivot(a, size, &p1, &p2);
 	while (i < size)
 	{
 		if (a->stack[0] <= p1)
@@ -157,6 +159,7 @@ void	sort(t_stack *a, t_stack *b, int size)
 		}
 		i++;
 	}
+//
 	i = 0;
 	if (a->size != r)
 	{
@@ -166,33 +169,118 @@ void	sort(t_stack *a, t_stack *b, int size)
 			i++;
 		}
 	}
-	sort(a, b, r);
-	i = 0;
-	while (i < m)
+	search_pivot(a, r, &p1, &p2);
+	sort(a, b, r, p1, p2, 0);
+//
+	if (m > 3)
 	{
-		pa(a, b);
-		i++;
-	}
-	sort(a, b, m);
-	i = 0;
-	if (s == b->size)
-	{
-		while (i < s)
+		i = 0;
+		while (i < m)
 		{
-			pa(a, b);
+			push(a, b);
 			i++;
 		}
+		search_pivot(a, m, &p1, &p2);
+		i = 0;
+		while (i < m)
+		{
+			push(b, a);
+			i++;
+		}
+		tmp = 0;
+		while (i < m)
+		{
+			if (b->stack[0] <= p1)
+			{
+				rb(b);
+				tmp++;
+			}
+			else
+				pa(b, a);
+			i++;
+		}
+		sort(a, b, m - tmp, p1, p2, tmp);
 	}
 	else
 	{
+		i = 0;
+		while (i < m)
+		{			
+			pa(b, a);
+			i++;
+		}
+		search_pivot(a, m, &p1, &p2);
+		sort(a, b, m, p1, p2, 0);
+	}
+//
+	if (s > 3)
+	{
+		i = 0;
+		while (i < s)
+		{
+			reverse(b);
+			push(a, b);
+			i++;
+		}
+		search_pivot(a, s, &p1, &p2);
+		i = 0;
+		while (i < s)
+		{
+			push(b, a);
+			rotate(b);
+			i++;
+		}
+		i = 0;
+		tmp = 0;
+		if (s == b->size)
+		{
+			while (i < s)
+			{
+				if (b->stack[0] <= p1)
+				{
+					tmp++;
+					rb(b);
+				}
+				else
+					pa(a, b);
+				i++;
+			}
+		}
+		else
+		{
+			while (i < s)
+			{
+				rrb(b);
+				//pa(a, b);
+				i++;
+			}
+			i = 0;
+			while (i < s)
+			{
+				if (b->stack[0] <= p1)
+				{
+					tmp++;
+					rb(b);
+				}
+				else
+					pa(a, b);
+				i++;
+			}
+		}
+		sort(a, b, s - tmp, p1, p2, tmp);
+	}
+	else
+	{
+		i = 0;
 		while (i < s)
 		{
 			rrb(b);
 			pa(a, b);
 			i++;
 		}
+		search_pivot(a, s, &p1, &p2);
+		sort(a, b, s, p1, p2, 0);
 	}
-	sort(a, b, s);
 }
 
 /*static int	search_max(t_stack *a)

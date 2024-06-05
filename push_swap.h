@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/27 15:14:18 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/05 16:34:33 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/05 22:12:57 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,9 @@ void	rra(t_stack *a);
 void	rrb(t_stack *b);
 void	rrr(t_stack *a, t_stack *b);
 void	dup_check(t_stack *a);
-void	sort(t_stack *a, t_stack *b, int size);
+void	sort(t_stack *a, t_stack *b, int size, int p1, int p2, int s);
+void	push(t_stack *a, t_stack *b);
+void	reverse(t_stack *a);
+void	rotate(t_stack *a);
 
 #endif

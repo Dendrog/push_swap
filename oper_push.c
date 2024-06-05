@@ -6,13 +6,13 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 19:42:27 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/31 21:10:49 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/05 21:50:25 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push(t_stack *a, t_stack *b)
+void	push(t_stack *a, t_stack *b)
 {
 	int	i;
 

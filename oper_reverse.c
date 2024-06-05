@@ -6,13 +6,13 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 01:52:20 by jakim             #+#    #+#             */
-/*   Updated: 2024/05/31 21:13:23 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/05 21:51:02 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	reverse(t_stack *a)
+void	reverse(t_stack *a)
 {
 	int	i;
 
