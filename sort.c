@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jakim <jakim@student.42gyeongsan.kr>       +#+  +:+       +#+        */
+/*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 20:31:21 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/06 04:40:21 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/06 20:24:09 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,35 +85,58 @@ static void	mini_sort(t_stack *a, int size)
 	}
 	else if (size == 3)
 	{
-		if (a->stack[0] < a->stack[1] && a->stack[0] < a->stack[2] && a->stack[1] > a->stack[2])
+		if (size == a->size)
 		{
-			ra(a);
-			sa(a);
-			rra(a);
+			if (a->stack[0] < a->stack[1] && a->stack[0] < a->stack[2] && a->stack[1] > a->stack[2])
+			{
+				ra(a);
+				sa(a);
+				rra(a);
+			}
+			else if (a->stack[0] > a->stack[1] && a->stack[0] < a->stack[2] && a->stack[1] < a->stack[2])
+				sa(a);
+			else if (a->stack[0] < a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
+				rra(a);
+			else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] < a->stack[2])
+				ra(a);
+			else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
+			{
+				ra(a);
+				ra(a);
+			}
 		}
-		else if (a->stack[0] > a->stack[1] && a->stack[0] < a->stack[2] && a->stack[1] < a->stack[2])
-			sa(a);
-		else if (a->stack[0] < a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
+		else
 		{
-			ra(a);
-			sa(a);
-			rra(a);
-			sa(a);
-		}
-		else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] < a->stack[2])
-		{
-			sa(a);
-			ra(a);
-			sa(a);
-			rra(a);
-		}
-		else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
-		{
-			sa(a);
-			ra(a);
-			sa(a);
-			rra(a);
-			sa(a);
+			if (a->stack[0] < a->stack[1] && a->stack[0] < a->stack[2] && a->stack[1] > a->stack[2])
+			{
+				ra(a);
+				sa(a);
+				rra(a);
+			}
+			else if (a->stack[0] > a->stack[1] && a->stack[0] < a->stack[2] && a->stack[1] < a->stack[2])
+				sa(a);
+			else if (a->stack[0] < a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
+			{
+				ra(a);
+				sa(a);
+				rra(a);
+				sa(a);
+			}
+			else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] < a->stack[2])
+			{
+				sa(a);
+				ra(a);
+				sa(a);
+				rra(a);
+			}
+			else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
+			{
+				sa(a);
+				ra(a);
+				sa(a);
+				rra(a);
+				sa(a);
+			}
 		}
 	}
 }
