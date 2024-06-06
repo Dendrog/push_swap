@@ -6,7 +6,7 @@
 /*   By: jakim <jakim@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 20:31:21 by jakim             #+#    #+#             */
-/*   Updated: 2024/06/06 20:24:09 by jakim            ###   ########.fr       */
+/*   Updated: 2024/06/06 20:34:38 by jakim            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,7 @@ static void	mini_sort(t_stack *a, int size)
 			else if (a->stack[0] > a->stack[1] && a->stack[0] > a->stack[2] && a->stack[1] > a->stack[2])
 			{
 				ra(a);
-				ra(a);
+				sa(a);
 			}
 		}
 		else
@@ -148,6 +148,7 @@ void	sort(t_stack *a, t_stack *b, int size, int p1, int p2, int s)
 	int	m;
 	int	i;
 	int	tmp;
+	int	count;
 	//int p1;
 	//int p2;
 
@@ -164,25 +165,43 @@ void	sort(t_stack *a, t_stack *b, int size, int p1, int p2, int s)
 	}
 	if (s == 0)
 		search_pivot(a, size, &p1, &p2);
+	count = 0;
 	while (i < size)
 	{
 		if (a->stack[0] <= p1)
 		{
 			pb(a, b);
-			rb(b);
+			count++;
+			//rb(b);
 			s++;
 		}
 		else if (a->stack[0] <= p2)
 		{
+			while (count)
+			{
+				rb(b);
+				count--;
+			}
 			pb(a, b);
 			m++;
 		}
 		else
 		{
-			ra(a);
+			if (count)
+			{
+				rr(a, b);
+				count--;
+			}
+			else
+				ra(a);
 			r++;
 		}
 		i++;
+	}
+	while (count)
+	{
+		rb(b);
+		count--;
 	}
 	i = 0;
 	if (a->size != r)
